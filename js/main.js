@@ -3,7 +3,7 @@ var g_width = $(window).width();
 var g_height = $(window).height();
 var game = new Phaser.Game(g_width, g_height, Phaser.AUTO, 'hearing-voices', {preload: preload, create: create, update: update, render: render});
 var g_currentLevel = 1;
-var g_playerName = "Hadi";
+var g_playerName = "Jo and Gail";
 var g_collisionTimer=0;
 function preload() {
     /*
