@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+Copyright (C) 2015 Hadi Mehrpouya <http://www.hadi.link>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <canvas id="cancan" width="30", height="10"></canvas>
+        <script type="text/javascript">
+            function imageLoaded(ev) {
+                element = document.getElementById("cancan");
+                c = element.getContext("2d");
+
+                im = ev.target; // the image, assumed to be 200x200
+
+                // read the width and height of the canvas
+                width = element.width;
+                height = element.height;
+
+                // stamp the image on the left of the canvas:
+                c.drawImage(im, 0, 0);
+
+                // get all canvas pixel data
+                imageData = c.getImageData(0, 0, width, height);
+
+                w2 = width / 2;
+
+                // run through the image, increasing blue, but filtering
+                // down red and green:
+
+                for (y = 0; y < height; y++) {
+                    inpos = y * width * 4; // *4 for 4 ints per pixel
+                    outpos = inpos + w2 * 4
+                    for (x = 0; x < w2; x++) {
+                        r = imageData.data[inpos++] ;
+                        g = imageData.data[inpos++];
+                        b = imageData.data[inpos++];
+                        a = imageData.data[inpos++];     // same alpha
+                        console.log(r,g,b,a,x,y);
+
+                    }
+                }
+            }
+
+            im = new Image();
+            im.onload = imageLoaded;
+            im.src = "res/levels/1.jpg"; // code assumes this image is 200x200
+
+        </script>
+
+    </body>
+</html>

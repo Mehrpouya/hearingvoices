@@ -3,69 +3,80 @@ var g_width = $(window).width();
 var g_height = $(window).height();
 var game = new Phaser.Game(g_width, g_height, Phaser.AUTO, 'hearing-voices', {preload: preload, create: create, update: update, render: render});
 var g_currentLevel = 1;
-
+var g_playerName = "Hadi";
 function preload() {
-/*
- * TODO:
- * Add loading screen!
- */
-    loadLevelMap();
-    game.stage.backgroundColor = '#000';
+    /*
+     * TODO: c 
+     * Add loading screen!
+     */
+    game.stage.backgroundColor = conf.levels[0].background;
     game.load.image('player', 'img/character.png');
-    game.load.image('background', 'img/IdeasAug1.jpg');
+    game.load.image('art1', 'img/IdeasAug1.jpg');
+    game.load.image('face', 'img/face1.jpg');
+//    game.load.image('background', 'img/IdeasAug1.jpg');
     game.load.audio('humming', ['res/audio/humming.mp3', 'res/audio/humming.ogg']);
+    game.load.audio('intro', ['res/audio/intro.mp3','res/audio/intro.ogg']);
+    game.load.audio('voice1', ['res/audio/voice1.mp3']);
     makeAllCharacterBitmaps();
-
+    setInterval(saySomething, 10000);
 }
-
 var player;
 var humming;
-var platforms;
+var g_platforms, g_positiveWords, g_negativeWords, g_looseWords;
 var cursors;
 var jumpButton;
 var sprite;
+var g_thingsToSay = ["You shouldn’t be here, waste of space", "Throw yourself out the window", "You’re common, a common wee tart", "Wait until you’re sleeping, then I’ll get you. We’ll all get you", "Remember: you are loved", "Remember: you are loved", "you deserved it.", "Quick, give us a cup of tea you fat bitch!!", "Selfish, ugly bitch. I’ll get you", "Keep going"];
+var g_accents = ["UK English Female", "UK English Male"];
+var group;
+function saySomething() {
+//    responsiveVoice.speak(window.g_playerName + g_thingsToSay[Math.floor(Math.random() * g_thingsToSay.length)], g_accents[Math.floor(Math.random() * g_accents.length)], {pitch: 1});
+//     addChar(Math.round(Math.random() * g_width), 100);
+//$("#dodod").text(game.time.fps);
+}
 function create() {
+    loadLevelMap();
     var worldWidth = conf.levels[window.g_currentLevel - 1].text.width(),
-            worldHeight= Math.max(g_height,game.cache.getImage('background').height);
-    console.lo
+            worldHeight = Math.max(g_height, 0);//game.cache.getImage('background').height);
     game.world.resize(worldWidth, worldHeight);
     game.world.setBounds(0, 0, worldWidth, worldHeight);
-
-
-
-    game.add.tileSprite(0, 0,worldWidth,worldHeight, 'background');
-    var bod = makeWordBitmap("Debbie", "rgb(100,100,200)");
-    player = game.add.sprite(10, 0,bod );
+//    game.add.tileSprite(0, 0,worldWidth,worldHeight, 'background');
+    var bod = makeWordBitmap(window.g_playerName, "rgb(200,10,10)");
+    player = game.add.sprite(10, 0, bod);
     game.physics.arcade.enable(player);
 
     player.body.bounce.y = 0.2;
     player.body.gravity.y = 500;
     player.body.collideWorldBounds = true;
     game.camera.follow(player);
-
-    //  The platforms group contains the ground and the 2 ledges we can jump on
-    platforms = game.add.group();
-
+    //  The g_platforms group contains the ground and the 2 ledges we can jump on
+    g_platforms = game.add.group();
+    g_positiveWords = game.add.group();
+    g_negativeWords = game.add.group();
+    g_looseWords = game.add.group();
     //  We will enable physics for any object that is created in this group
-    platforms.enableBody = true;
-    player.body.gravity.y = 100;
-//    addChar('a', 200, -500);
-//    game.add.text(400, 400, 's', style);
+    g_platforms.enableBody = true;
+    g_positiveWords.enableBody = true;
+    g_negativeWords.enableBody = true;
+    g_looseWords.enableBody = true;
+//    g_platforms.body.immovable = true;
+    player.body.gravity.y = 500;
     cursors = game.input.keyboard.createCursorKeys();
     jumpButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     humming = game.add.audio('humming');
-    loadSentences();
-//    humming.play();
-
-
+    music = game.add.audio('intro');
+    voice1 = game.add.audio('voice1');
+    music.play();
 }
+
 function update() {
 //    addChar(Math.round(Math.random() * g_width), 100);
-    game.physics.arcade.collide(player, platforms);
+    game.physics.arcade.collide(player, g_platforms);
+    game.physics.arcade.collide(player, g_positiveWords,positiveCollisionHandler, null, this);
+    game.physics.arcade.collide(player, g_looseWords);
+    game.physics.arcade.collide(player, g_negativeWords);
 //    game.physics.arcade.collide(player, sprite);
-
     player.body.velocity.x = 0;
-
     if (cursors.left.isDown)
     {
         player.body.velocity.x = -250;
@@ -74,7 +85,6 @@ function update() {
     {
         player.body.velocity.x = 250;
     }
-
     if (jumpButton.isDown && (player.body.onFloor() || player.body.touching.down))
     {
         player.body.velocity.y = -400;
@@ -85,101 +95,89 @@ function render() {
 }
 
 
-function initCell(chr, x, y) {
-    game.add.text(x, y, chr, style);
-//    platforms.add(text);
-//    return text;
+
+
+function positiveCollisionHandler(obj1,obj2){
+//    responsiveVoice.speak(window.g_playerName + g_thingsToSay[Math.floor(Math.random() * g_thingsToSay.length)], g_accents[Math.floor(Math.random() * g_accents.length)], {pitch: 1});
+voice1.play();
 }
 
-function addChar(x, y) {
 
-    var sp = game.add.sprite(x, y, charBitmaps[Math.floor(Math.random() * charBitmaps.length)]);
-    sp.anchor.set(0.5, 0.5);
-    game.physics.arcade.enable(sp);
-    sp.body.bounce.y = 0.2;
-    sp.body.gravity.y = 500;
-    sp.body.collideWorldBounds = true;
-    return sp;
-}
+
+
+
 var charBitmaps = [];
-function makeAllCharacterBitmaps() {
-    var charList = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"
-                , "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"];
-    var color = Math.round(Math.random() * 250) + 50;
-    for (var i = 0; i < charList.length; i++) {
-        var bmd = game.add.bitmapData(30, 70, charList[i]);
-
-        bmd.text(charList[i], 0, 45, g_font, 'rgb(' + color + ',' + color + ',' + color + ')');
-        charBitmaps.push(bmd);
-    }
-}
-
-
-function makeWordBitmap(_word, _color) {
-    var color = _color;
-    var bmd = game.add.bitmapData(_word.width(), 12, _word);
-    bmd.text(_word, 0,12, g_font, _color);
-    return bmd;
-}
-
-String.prototype.width = function (font) {
-    var f = font || g_font,
-            o = $('<div>' + this + '</div>')
-            .css({'position': 'absolute', 'float': 'left', 'white-space': 'nowrap', 'visibility': 'hidden', 'font': f})
-            .appendTo($('body')),
-            w = o.width();
-
-    o.remove();
-
-    return w;
-}
-
-
-var g_levelPixelMap;
+var g_levelPixelMap = [];// This is the dynamicsa of each sentence. It gets processed in the process pixel color function. and then used in the load sentences funciton. 
 // The magic®
 function loadLevelMap() {
+//    img = $('#level1')[0];
+    var img = new Image();
+    img.onload = imageLoaded;
+    img.src = 'res/levels/1.jpg';
+}
+
+function imageLoaded(ev) {
     var level = conf.levels[window.g_currentLevel - 1];
     var cvs = document.createElement('canvas');
-    var img = new Image();
-    //loading level design from pixel map
-    cvs.width = level.width;
-    cvs.height = level.height;
     var ctx = cvs.getContext("2d");
-    var img = document.getElementById(level.levelMapId);
-    console.log(level.levelMapId, img);
-    ctx.drawImage(img, 0, 0, cvs.width, cvs.height);
-    var idt = ctx.getImageData(0, 0, cvs.width, cvs.height);
-    for (var y = 0; y < cvs.height; y++) {
-        for (var x = 0; x < cvs.width; x++) {
-            processPixelColor(getPixel(idt, x * y), x, y);
+    im = ev.target; // the image, assumed to be 200x200
+    ctx.width = im.width;
+    ctx.height = im.height;
+    // read the width and height of the canvas
+    width = im.width;
+    height = im.height;
+    // stamp the image on the left of the canvas:
+    ctx.drawImage(im, 0, 0);
+    // get all canvas pixel data
+    imageData = ctx.getImageData(0, 0, width, height);
+    w2 = width / 2;
+    // run through the image, increasing blue, but filtering
+    // down red and green:
+    for (x = 0; x < width; x++) {
+        for (y = 0; y < height; y++) {
+            inpos = (y * width) * 4 + x * 4; // *4 for 4 ints per pixel
+            r = imageData.data[inpos++];
+            g = imageData.data[inpos++];
+            b = imageData.data[inpos++];
+            a = imageData.data[inpos++];     // same alpha
+            processPixelColorRGBA(r, g, b, a, x, y);
         }
     }
+    loadSentences();
 }
 
-function processPixelColor(_color, _x, _y) {
-    var r = _color[0], g = _color[1], b = _color[2], a = _color[3];
-    if (r < 255 && g < 255 && b < 255) {
-        if (r + g + b === 0) {
-            g_levelPixelMap.push({"type": "normal", "x": _x, "y": _y});
-        }
+function processPixelColorRGBA(_r, _g, _b, _a, _x, _y) {
+    var xRatio = game.world.width / 30;
+    var yRatio = game.world.height / 9;
+    var newY = ((_y * yRatio) / 2 + game.world.height / 2 - yRatio / 2);
+    var type = "immovable";
+    if ((_g + _b) <= 50 && _r > 200) {
+        type = "loose";
+        g_levelPixelMap.push(JSON.parse('{"type": "' + type + '","x": ' + (_x * xRatio) + ', "y": ' + newY + '}'));
     }
+    if ((_r + _g + _b) <= 100) {
+
+        g_levelPixelMap.push(JSON.parse('{"type": "' + type + '","x": ' + (_x * xRatio) + ', "y": ' + newY + '}'));
+    }
+    else if ((_r + _b) <= 50 && _g > 150) {
+        //g_levelPixelMap.push(JSON.parse('{"type": "normal","x": ' + (_x * xRatio) + ', "y": ' + ((_y * yRatio) - 50) + '}'));
+//        group = game.add.group();
+//        group.position.set(game.world.centerX, game.world.centerY);
+//        var tag = game.add.sprite(0, 0, "art1", 0, group);
+//        // Set our tween
+//        game.add.tween(tag).to({angle: 20}, 1000, Phaser.Easing.Sinusoidal.InOut, true, 0, Infinity, true);
+    }
+
+    /*
+     * group = game.add.group();
+     group.position.set(game.world.centerX, game.world.centerY);
+     var tag = game.add.sprite(0, 0, this.getPattern(64, 128), 0, group);
+     // Set our tween
+     game.add.tween(tag).to({angle: 20}, 1000, Phaser.Easing.Sinusoidal.InOut, true, 0, Infinity, true);
+     */
 }
-
-function getPixel(imgData, index) {
-    var i = index * 4, d = imgData.data;
-    return [d[i], d[i + 1], d[i + 2], d[i + 3]]; // [R,G,B,A]
-}
-
-// AND/OR
-
-function getPixelXY(imgData, x, y) {
-    return getPixel(imgData, y * imgData.width + x);
-}
-
-
 /*
  * This will load the sentences by:
- * 
  * starting from the first sentence
  * breaking sentences to words
  * Making a physics body for each word
@@ -188,29 +186,79 @@ function getPixelXY(imgData, x, y) {
  * */
 function loadSentences() {
     var level = conf.levels[window.g_currentLevel - 1];
-    var wordX = 0, wordY = 0;
+    var yRatio = game.world.height / 9;
+    var wordX = blockX = 20, wordY = 0,distanceBetween=150;
     //first break the text into sentences
     var txt = level.text;
     var sentences = txt.match(/\(?[^\.\?\!]+[\.!\?]\)?/g);//regular expression to recognise sentences
     var sentence = "", words, word = "", wordBody;
     wordY = 100;
+    var wordsInBlock = 0;
+    wordY = g_levelPixelMap[0].y;
+    
+    var startX = 0;
+    var blockCount = 0;
+    var blockUsed = 0;
+    var sentenceType = g_levelPixelMap[0].type;
+    console.log(sentenceType);
     for (i = 0; i < sentences.length; i++) {
-        sentence = sentences[i];
+        sentence = sentences[i].trim();
         words = sentence.split(" ");
-
         for (j = 0; j < words.length; j++) {
             word = words[j];
-            wordBody = makeWordBitmap(word, "rgb(220,220,220)");
-            var sp = game.add.sprite(wordX, wordY, wordBody);
-            platforms.add(sp);
-            console.log(wordX, word, sp);
+            if ((blockUsed >= level.blockSize) || (word.width() + 10 + blockUsed > level.blockSize)) {
+                blockUsed = 0;
+                if (g_levelPixelMap[blockCount].x === g_levelPixelMap[blockCount + 1].x) {
+                    wordX = blockX;
+                    wordY = g_levelPixelMap[blockCount].y;
+                }
+                else {
+                    wordX += distanceBetween;
+                    blockX = wordX;
+
+                }
+                blockCount++;
+                wordY = g_levelPixelMap[blockCount].y;
+                sentenceType = g_levelPixelMap[blockCount].type;
+            }
+            /*
+             * TODO:
+             * Check if you can add a whole block of words as one physics object. 
+             */
+            addWordPhysics(word, wordX, wordY, sentenceType);
+            wordsInBlock++;
             wordX += word.width() + 10;
-            game.physics.arcade.enable(sp);
-//            sp.body.bounce.y = 0.2;
-//            sp.body.gravity.y = 500;
-            sp.body.collideWorldBounds = true;
+            blockUsed += (word.width() + 10);
         }
-        wordY += 70;
     }
-//    makeWordBitmap
 }
+function addWordPhysics(_word, wordX, wordY, _sentenceType) {
+    level = conf.levels[g_currentLevel - 1];
+    var physicsGroup = window.g_platforms;
+    var color = level.textColor;
+    var font = g_font;
+    var immovable = true;
+    if (_sentenceType !== "immovable") {
+        color = "rgb(100,100,100)";
+        physicsGroup = g_looseWords;
+        font = "20px Arial";
+        immovable = false;
+    }
+    if (_word.indexOf("++") >= 0) {
+        _word = _word.substr(2).trim();
+        physicsGroup = g_positiveWords;
+        color = level.plusplusColor;
+        immovable = true;
+        font = level.plusplusFont;
+    }
+    else if (_word.indexOf("+-") >= 0) {
+        _word = _word.substr(2).trim();
+        physicsGroup = g_negativeWords;
+        color = "rgb(100,100,200)";
+        immovable = true;
+    }
+    wordBody = makeWordBitmap(_word, color, font);
+    textBody = physicsGroup.create(wordX, wordY, wordBody);
+    textBody.body.immovable = immovable;
+}
+
