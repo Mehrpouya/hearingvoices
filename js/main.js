@@ -4,6 +4,7 @@ var g_height = $(window).height();
 var game = new Phaser.Game(g_width, g_height, Phaser.AUTO, 'hearing-voices', {preload: preload, create: create, update: update, render: render});
 var g_currentLevel = 1;
 var g_playerName = "Hadi";
+var g_collisionTimer=0;
 function preload() {
     /*
      * TODO: c 
@@ -17,19 +18,24 @@ function preload() {
     game.load.audio('humming', ['res/audio/humming.mp3', 'res/audio/humming.ogg']);
     game.load.audio('intro', ['res/audio/intro.mp3','res/audio/intro.ogg']);
     game.load.audio('voice1', ['res/audio/voice1.mp3']);
+    game.load.audio('noise', ['res/audio/backgroundNoise.mp3']);
     makeAllCharacterBitmaps();
-    setInterval(saySomething, 10000);
+    setInterval(saySomething, 23000);
 }
 var player;
 var humming;
-var g_platforms, g_positiveWords, g_negativeWords, g_looseWords;
+var g_platforms, g_positiveWords, g_negativeWords, g_looseWords,g_noiseSound ;
 var cursors;
 var jumpButton;
 var sprite;
-var g_thingsToSay = ["You shouldn’t be here, waste of space", "Throw yourself out the window", "You’re common, a common wee tart", "Wait until you’re sleeping, then I’ll get you. We’ll all get you", "Remember: you are loved", "Remember: you are loved", "you deserved it.", "Quick, give us a cup of tea you fat bitch!!", "Selfish, ugly bitch. I’ll get you", "Keep going"];
+var g_thingsToSay = ["You shouldn’t be here, waste of space", "Throw yourself out the window", 
+    "You’re common, a common wee tart", "Wait until you’re sleeping, then I’ll get you. We’ll all get you", 
+    "Remember: you are loved", "Remember: you are loved", "you deserved it.", "Quick, give us a cup of tea you fat bitch!!", "Selfish, ugly bitch. I’ll get you", "Keep going"];
 var g_accents = ["UK English Female", "UK English Male"];
 var group;
 function saySomething() {
+    g_noiseSound.volume = 0.2;
+    g_noiseSound.play();
 //    responsiveVoice.speak(window.g_playerName + g_thingsToSay[Math.floor(Math.random() * g_thingsToSay.length)], g_accents[Math.floor(Math.random() * g_accents.length)], {pitch: 1});
 //     addChar(Math.round(Math.random() * g_width), 100);
 //$("#dodod").text(game.time.fps);
@@ -66,6 +72,7 @@ function create() {
     humming = game.add.audio('humming');
     music = game.add.audio('intro');
     voice1 = game.add.audio('voice1');
+    g_noiseSound = game.add.audio('noise');
     music.play();
 }
 
@@ -98,8 +105,11 @@ function render() {
 
 
 function positiveCollisionHandler(obj1,obj2){
-//    responsiveVoice.speak(window.g_playerName + g_thingsToSay[Math.floor(Math.random() * g_thingsToSay.length)], g_accents[Math.floor(Math.random() * g_accents.length)], {pitch: 1});
-voice1.play();
+    if((game.time.now-g_collisionTimer)>5000 ){
+        g_collisionTimer=game.time.now;
+    responsiveVoice.speak(window.g_playerName + g_thingsToSay[Math.floor(Math.random() * g_thingsToSay.length)], g_accents[Math.floor(Math.random() * g_accents.length)], {pitch: 1});
+}
+//voice1.play();
 }
 
 
