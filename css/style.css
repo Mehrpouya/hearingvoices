@@ -1,0 +1,167 @@
+hr {
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-style: solid none;
+  border-width: 1px 0;
+  margin: 18px 0;
+  color: #FF0000;
+}
+.noPadding * {
+  padding: 25px 50px 75px 100px;
+}
+
+.marginTop30 {
+  margin-top: 30px;
+}
+section {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.biggerP {
+  font-size: 1.5em;
+  padding-left: .4em;
+}
+.grayBack {
+  background-color: #eee;
+}
+
+.orangeBack{
+  background-color: rgba(208, 69, 3, 53);
+}
+
+.darkGreyBack{
+  background-color: rgba(62, 62, 62, 50);
+}
+
+.charcoalBack{
+  background-color: rgba(58, 81, 92, 50);
+}
+
+.whiteish{
+  color: rgba(255, 255, 255, 40);
+}
+
+.whiteText{
+  color: white;
+}
+
+
+.saadBanner {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+p.large {
+  font-size: 1.2em;
+}
+.row.padded {
+  padding: 0em 2em 0em 2em;
+}
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+#top{
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+}
+#top.navbar {
+  margin-bottom: 0px !important;
+  border-radius: 0px !important;
+  background-image: none !important;
+  background-repeat: none !important;
+  box-shadow: none !important;
+}
+#top.navbar-default {
+    background-color: #f8f8f8;
+    border-color: none !important;
+}
+
+#navbar {
+  clear: both;
+
+}
+.portfolio {
+  max-height: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#tweet {
+  overflow: hidden;
+}
+#tweet ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 99999px;
+  height: 100px;
+}
+#tweet ul li {
+  width: 300px;
+  min-height: 150px;
+  float: left;
+  border-right: 1px solid #eee;
+  padding: 0 10px 0 0;
+  margin: 0 10px 0 0;
+}
+
+@media (max-width: 999px) {
+section {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+}
+
+.marginForNav {
+  padding-top: 130px;
+}
+.group1 {
+  background-color: rgba(138, 137, 137, 58);
+}
+.group2, .group3, .group4, .group8, .group11, .group13, .group14 {
+  padding-bottom: 30px;
+}
+.group10, .group11 {
+  background-color: rgb(130, 30, 50);
+}
+
+.group2, .group4, .group5, .group10 {
+  padding-top: 50px;
+}
+
+footer img {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+.header h1{
+  color:red;
+}
+.header img{
+  width: 100%;
+
+}
+.justified{
+  text-align: justify;
+}
+.seperatorImage{
+
+  height: 300px;
+  background-image: url("/img/seperator.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+
+.bio{
+  padding: 20px;
+  text-align: left;
+}
