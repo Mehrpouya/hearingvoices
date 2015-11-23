@@ -27,24 +27,33 @@ section {
 .grayBack {
   background-color: #eee;
 }
+.text-darkRed{
+  color:rgba(140, 0, 16, 0.9);
+}
 
 .orangeBack{
-  background-color: rgba(208, 69, 3, 53);
+  background-color: rgba(208, 69, 3, 1);
+}
+.royalBlue{
+  background-color: rgba(65,105,225,1);
+}
+.royalBlue85{
+  background-color: rgba(65,105,225,.98);
 }
 
 .darkGreyBack{
-  background-color: rgba(62, 62, 62, 50);
+  background-color: rgba(62, 62, 62, 1);
 }
 
 .charcoalBack{
-  background-color: rgba(58, 81, 92, 50);
+  background-color: rgba(58, 81, 92, 1);
 }
 
 .whiteish{
   color: rgba(255, 255, 255, 40);
 }
 
-.whiteText{
+.text-white{
   color: white;
 }
 
@@ -81,8 +90,10 @@ p.large {
   box-shadow: none !important;
 }
 #top.navbar-default {
-    background-color: #f8f8f8;
+    background-color: rgba(248,248,248,.85);
+    transition: background-color 2s linear;
     border-color: none !important;
+    border: none;
 }
 
 #navbar {
@@ -164,4 +175,95 @@ footer img {
 .bio{
   padding: 20px;
   text-align: left;
+}
+
+.circular {
+  width: 300px;
+	height: 300px;
+	border-radius: 150px;
+  margin-bottom: 30px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	background: url("/img/cover.png") no-repeat;
+  background-size: cover;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	}
+  .circular:hover{
+    background: url("/img/pdfIcon.png") no-repeat;
+    background-size: cover;
+  }
+
+
+  #pdfDownload {
+    background: url("/img/sketching.png") 50% 0 repeat fixed; min-height: 450px;
+    height: 450px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1920px;
+    position: relative;
+  }
+
+  #pdfDownload section {
+    height: 300px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+  }
+  #home {
+    background: url("/img/cover.png") 50% 0 no-repeat fixed; min-height: 600px;
+    background-size: contain;
+    height: 600px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1920px;
+    position: relative;
+  }
+  #home article {
+    top: 100px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    right: 0px;
+  }
+.rotate90{
+  -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Safari */
+    transform: rotate(90deg);
+}
+  .veryBig{
+    font-size: 4em;
+  }
+#survey{
+  position: absolute;
+  height: 450px;
+  z-index: 9999;
+  width: 100%;
+
+}
+#survey img{
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  height: 40px;
+  cursor: pointer;
+}
+#survey textarea{
+  width: 100%;
+  background-color:white;
+  height: 150px;
+  border-radius: 5px;
+  /*line-height: 30;*/
+  color:rgba(100, 100, 100, 0.9);;
+  font-size: 24px;
+}
+#survey input{
+  width: 100%;
+  background-color:white;
+  height: 40px;
+  border-radius: 5px;
+  /*line-height: 30;*/
+  color:rgba(100, 100, 100, 0.9);;
+  font-size: 24px;
 }
