@@ -1,0 +1,333 @@
+hr {
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-style: solid none;
+  border-width: 1px 0;
+  margin: 18px 0;
+  color: #FF0000;
+}
+.noPadding * {
+  padding: 25px 50px 75px 100px;
+}
+
+.marginTop30 {
+  margin-top: 30px;
+}
+section {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.biggerP {
+  font-size: 1.5em;
+  padding-left: .4em;
+}
+.grayBack {
+  background-color: #eee;
+}
+.text-darkRed{
+  color:rgba(140, 0, 16, 0.9);
+}
+
+.orangeBack{
+  background-color: rgba(208, 69, 3, 1);
+}
+.royalBlue{
+  background-color: rgba(65,105,225,1);
+}
+.royalBlue85{
+  background-color: rgba(65,105,225,.98);
+}
+
+.darkGreyBack{
+  background-color: rgba(62, 62, 62, 1);
+}
+.darkGreyBack90{
+  background-color: rgba(62, 62, 62, .9);
+}
+
+.charcoalBack{
+  background-color: rgba(58, 81, 92, 1);
+}
+
+.whiteish{
+  color: rgba(255, 255, 255, 40);
+}
+
+.text-white{
+  color: white;
+}
+
+.grayGradient {
+
+  /* Fallback (could use .jpg/.png alternatively) */
+  background-color: rgba(62, 62, 62, .9);
+
+  /* Safari 4, Chrome 1-9, iOS 3.2-4.3, Android 2.1-3.0 */
+  background-image:
+    -webkit-gradient(linear, top, bottom, from(rgba(62, 62, 62, 1)), to(rgba(62, 62, 62, .4)));
+
+  /* Safari 5.1, iOS 5.0-6.1, Chrome 10-25, Android 4.0-4.3 */
+  background-image:
+    -webkit-linear-gradient(left, rgba(62, 62, 62, 1), rgba(62, 62, 62, .4));
+
+  /* Firefox 3.6 - 15 */
+  background-image:
+    -moz-linear-gradient(left, rgba(62, 62, 62, 1), rgba(62, 62, 62, .4));
+
+  /* Opera 11.1 - 12 */
+  background-image:
+    -o-linear-gradient(left, rgba(62, 62, 62, 1), rgba(62, 62, 62, .4));
+
+  /* Opera 15+, Chrome 25+, IE 10+, Firefox 16+, Safari 6.1+, iOS 7+, Android 4.4+ */
+  background-image:
+    linear-gradient(to right, rgba(62, 62, 62, 1), rgba(62, 62, 62, .4));
+
+}
+
+
+.saadBanner {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+p.large {
+  font-size: 1.2em;
+}
+.row.padded {
+  padding: 0em 2em 0em 2em;
+}
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+#top{
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+}
+#top.navbar {
+  margin-bottom: 0px !important;
+  border-radius: 0px !important;
+  background-image: none !important;
+  background-repeat: none !important;
+  box-shadow: none !important;
+}
+#top.navbar-default {
+    background-color: rgba(248,248,248,.85);
+    transition: background-color 2s linear;
+    border-color: none !important;
+    border: none;
+}
+
+#navbar {
+  clear: both;
+
+}
+.portfolio {
+  max-height: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#tweet {
+  overflow: hidden;
+}
+#tweet ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 99999px;
+  height: 100px;
+}
+#tweet ul li {
+  width: 300px;
+  min-height: 150px;
+  float: left;
+  border-right: 1px solid #eee;
+  padding: 0 10px 0 0;
+  margin: 0 10px 0 0;
+}
+
+@media (max-width: 999px) {
+section {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+}
+
+.marginForNav {
+  padding-top: 130px;
+}
+.group1 {
+  background-color: rgba(138, 137, 137, 58);
+}
+.group2, .group3, .group4, .group8, .group11, .group13, .group14 {
+  padding-bottom: 30px;
+}
+.group10, .group11 {
+  background-color: rgb(130, 30, 50);
+}
+
+.group2, .group4, .group5, .group10 {
+  padding-top: 50px;
+}
+
+footer img {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+.header h1{
+  color:red;
+}
+.header img{
+  width: 100%;
+
+}
+.justified{
+  text-align: justify;
+}
+.seperatorImage{
+
+  height: 300px;
+  background-image: url("/img/seperator.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+
+.bio{
+  padding: 20px;
+  text-align: left;
+}
+
+.circular {
+  width: 300px;
+	height: 300px;
+	border-radius: 150px;
+  margin-bottom: 30px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	background: url("/img/cover.png") no-repeat;
+  background-size: cover;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	}
+  .circular:hover{
+    background: url("/img/pdfIcon.png") no-repeat;
+    background-size: cover;
+  }
+
+
+  #pdfDownload {
+    background: url("/img/sketching.png") 50% 0 repeat fixed; min-height: 450px;
+    height: 450px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1920px;
+    position: relative;
+  }
+
+  #pdfDownload section {
+    height: 300px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+  }
+  #home {
+    background: url("/img/cover.png") 50% 0 no-repeat fixed; min-height: 600px;
+    background-size: contain;
+    height: 600px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1920px;
+    position: relative;
+  }
+  #home article {
+    top: 100px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    right: 0px;
+  }
+  section{
+    padding-left: 0;
+    padding-right: 0;
+  }
+.rotate90{
+  -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Safari */
+    transform: rotate(90deg);
+}
+  .veryBig{
+    font-size: 4em;
+  }
+#survey{
+  position: absolute;
+  height: 450px;
+  z-index: 9999;
+  padding-top: 40px;
+  margin:0 auto;
+    right:0;
+    left:0;
+    border-radius: 5px;
+
+
+}
+#survey .skip{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  height: 60px;
+  cursor: pointer;
+}
+#survey .download{
+  height: 40px;
+  cursor: pointer;
+}
+#survey textarea{
+  width: 100%;
+  max-width: 800px;
+  background-color:white;
+  height: 150px;
+  border-radius: 5px;
+  margin-top: 10px;
+  /*line-height: 30;*/
+  color:rgba(100, 100, 100, 0.9);;
+  font-size: 24px;
+}
+#survey input[type=text]{
+  width: 400px;
+  max-width: 600px;
+  background-color:white;
+  height: 40px;
+  border-radius: 5px;
+  /*line-height: 30;*/
+  color:rgba(100, 100, 100, 0.9);;
+  font-size: 24px;
+}
+#survey button{
+  width: 150px;
+  background-color:rgba(197,151,81, 0.8);
+  height: 40px;
+  border-radius: 5px;
+  margin-left: 100px;
+  /*line-height: 30;*/
+  color:rgba(230, 230, 230, 1);;
+  font-size: 24px;
+}
+#survey button:hover{
+  background-color:rgba(34,100,102, 0.8);
+}
+#sound{
+  /*background-color:rgba(34,100,102, 0.8);*/
+  border-radius: 5px;
+  padding: 0px;
+}

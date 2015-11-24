@@ -1,20 +1,189 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>Hearing Voices</title>
-        <link href="css/main.css"  rel="stylesheet" type="text/css">
-        <script src="js/vendor/phaser/phaser.min.js"></script>
-        <script src="js/vendor/phaser/custom/phaser-arcade-physics.min.js"></script>
-        <script src="js/vendor/jquery-1.11.2.js"></script>
-        <script type="text/javascript" src="js/conf.js"></script>
-        <!-- <script src='https://code.responsivevoice.org/responsivevoice.js'></script> -->
-        <script type="text/javascript" src="js/helper.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
-    </head>
-    <body>
-        <img src="res/levels/1.png" id="level1" style="display: none">
-        <h1 id="dodod"  style="position: absolute; top: 10px; left: 50px; z-index: 999; color: red; width: 100px;"></h1>
+<!DOCTYPE html>
+<!--
+Copyright (C) 2015 Hadi Mehrpouya <http://www.hadi.link>
 
-    </body>
-</html>
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<html>
+
+<head>
+  <title>Listenins to Voices</title>
+  <link rel="stylesheet" href="js/libs/twitter-bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="js/libs/twitter-bootstrap/css/bootstrap-theme.css">
+  <link rel="stylesheet" type="text/css" href="js/vendor/player/css/style.css">
+  <script type="text/javascript" src="js/libs/jquery/jquery.js"></script>
+  <script type="text/javascript" src="js/vendor/player/jquery-jplayer/jquery.jplayer.js"></script>
+  <script type="text/javascript" src="js/vendor/player/ttw-music-player-min.js"></script>
+  <script type="text/javascript" src="js/myplaylist.js"></script>
+  <script type="text/javascript" src="js/libs/twitter-bootstrap/js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/libs/scrollNav/jquery.scrollNav.min.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/libs/tweetie.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+  <nav id="top" class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav vcenter">
+          <li><a href="#" onclick="navClicked('#home')">Home</a></li>
+          <li><a href="#" onclick="navClicked('#overview')">Overview</a></li>
+          <li><a href="#" onclick="navClicked('#companion')">Companion to Voice-Hearing</a></li>
+          <li><a href="#" onclick="navClicked('#listen')">Listen (if you dare)</a></li>
+          <li><a href="#" onclick="navClicked('#sound')">Sound piece</a></li>
+          <li><a href="#" onclick="navClicked('#team')">Project team</a></li>
+          <li><a href="#" onclick="navClicked('#research')">Research</a></li>
+          <li><a href="#" onclick="navClicked('#contact')">Contact</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </nav>
+
+  <div id="home" class="container group2">
+    <article class="veryBig text-white ">Listening to Voices</article>
+    <!-- <img src="img/cover.png" class=" col-lg-12 col-md-12 col-sm-12 col-xs-12"> -->
+  </div>
+  <div id="overview" class="container group3">
+    <section class="text-center lead ">
+      <h2>
+        Listening to Voices: Creative Disruptions with the Hearing Voices Network
+      </h2>
+    </section>
+    <section class="marginTop30 lead text-justify">
+      Listening to Voices is a research project that tries to understand how we can listen to voices that we find difficult, disruptive or challenging, whether these seem to come from inside or outside ourselves. It has been created by voice-hearers, academics and independent artists who are interested in asking why and how we silence voices in ourselves or others and how we might help increase understanding about the experience of hearing voices. Together we have created a companion to voice-hearing (?), an interactive text, a sound piece and some other written pieces about listening to voices.
+    </section>
+    <section class="marginTop30 lead text-justify">
+      Amongst other things, we hope that the companion that has been collaboratively created will help to increase understanding about the experience of hearing voices and help everyone to learn better skills for listening to voices that often go unheard.
+
+    </section>
+  </div>
+  <div class="container-fluid">
+    <div id="companion" class="container">
+      <section class="text-center lead ">
+        <h2>
+          Companion to voice hearing
+        </h2>
+      </section>
+      <section class="lead text-justify">
+        Listening to Voices is a research project that tries to understand how we can listen to voices Listen (If You Dare): An Unlikely Companion to Voice-Hearing is a radical new text about voice-hearing experiences. It explores what it is like to hear voices and attempts to help the reader experience something of that too. It also tries to understand how we can listen better to those voices that we find difficult, disruptive or challenging, whether these seem to come from inside or outside ourselves.
+
+        Warning: Some of the text and voices in the Listen (If You Dare) may be very disturbing. They reflect real experience and contain explicit content. For anyone who hears voices (particularly if this is a new experience) or loves someone who hears voices, reading it may be difficult or triggering.
+      </section>
+    </div>
+    <div id="pdfDownload" class="container">
+      <div id="survey" class="darkGreyBack90  container">
+        <!-- <div class="container"> -->
+        <h1 class="text-white">How did you hear about voice hearing?</h1>
+        <textarea rows="3"></textarea>
+        <h1 class="text-white">Your email</h1>
+        <input type="text" />
+        <img class="skip"  src="/img/close.png">
+        <!-- <img class="download"  src="/img/submit.png"> -->
+        <button type="submit">Submit</button>
+      </div>
+
+      <div class="container vcenter">
+        <section class=" text-center">
+          <a href="/res/ListenIfYouDare.pdf" download>
+            <h1 class="group3 text-darkRed">Download the companion</h1>
+            <div class="circular vcenter" ></div></a>
+          </section>
+        </div>
+      </div>
+      <div class="container group3">
+        <section class="marginTop30 lead text-justify">
+          Listen (If You Dare) was co-authored by members of Time and Space Hearing Voices group, Hearing Voices Belfast, Hearing Voices Ireland, the project researchers, sound artist Pedro Rebelo and designer Sara Nevay. They met together at a weekend retreat to reflect on, share and broaden their experiences of listening and being listened to. This retreat and the follow up discussions resulted in the production of this booklet in November 2015.
+
+        </section>
+      </div>
+    </div>
+    <div class="marginTop30 container">
+      <section>
+        <div id="sound" class="charcoalBack"></div>
+      </section>
+    </div>
+    <div id="team" class="container-fluid text-center darkGreyBack">
+      <h1 class="whiteish vcenter marginTop30">Project researchers</h1>
+      <div class="container text-center whiteish">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 marginTop30">
+          <section>
+            <img src="img/unknown-female.jpg" alt="Debbie Maxwell" class="img-responsive portfolio">
+          </section>
+          <section>
+            <h3 class="whiteish">Dr Gail McConnell</h3>
+          </section>
+          <section>
+            Principal Investigator
+            <br> QUB
+            <br>
+            <a href="www.www.com" class="">www.qubwww.com</a>
+            <br>
+            <a href="mailto:g.mcconnell@qub.ac.uk" class="">g.mcconnell@qub.ac.uk</a>
+            <p class="text-justify lead bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </section>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 marginTop30">
+          <section>
+            <img src="img/unknown-female.jpg" alt="Debbie Maxwell" class="img-responsive portfolio">
+          </section>
+          <section>
+            <h3>Dr Jo Collinson Scott</h3>
+          </section>
+          <section>
+            Co-Investigator
+            <br>
+            <br>
+            <a href="www.www.com" class="">www.qubwww.com</a>
+            <br>
+            <a href="mailto:Jo.Collinson-Scott@uws.ac.uk" class="">Jo.Collinson-Scott@uws.ac.uk</a>
+            <p class="text-justify lead bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </section>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 marginTop30">
+          <section>
+            <img src="img/unknown-female.jpg" alt="Debbie Maxwell" class="img-responsive portfolio">
+          </section>
+          <section>
+            <h3>Dr Debbie Maxwell</h3>
+          </section>
+          <section>
+            Co-Investigator
+            <br> UoE
+            <br>
+            <a href="www.www.com" class="">www.qubwww.com</a>
+            <br>
+            <a href="mailto:D.Maxwell@ed.ac.uk" class="">g.mcconnell@qub.ac.uk</a>
+            <p class="text-justify lead bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer text-center" >
+    </footer>
+  </body>
+
+  </html>
