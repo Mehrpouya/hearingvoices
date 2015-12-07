@@ -33,9 +33,33 @@ function navClicked(_whereTo){
 
 
 $(document).ready(function(){
+  var description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id tortor nisi. Aenean sodales diam ac lacus elementum scelerisque. Suspendisse a dui vitae lacus faucibus venenatis vel id nisl. Proin orci ante, ultricies nec interdum at, iaculis venenatis nulla. ';
+
   $('#survey img').bind("click",function(){
     $('#survey').fadeOut("slow");
   });
+  $('#pdfDownloadLink').bind("click",function(){
+    $('#survey').fadeIn("slow");
+  });
+  // var warningElements = $('.warning');
+  // setInterval(function() {
+  //    warningElements.toggleClass('blinking');
+  // }, 1000);
+
+  // $('#sound').ttwMusicPlayer(myPlaylist, //You can specify the following options in the options object:
+  // {
+  //      tracksToShow:1,
+  //      description:description,
+  //      autoplay:false,
+  //      jPlayer:{
+  //          swfPath:'/js/vendor/player/jquery-jplayer' //You need to override the default swf path any time the directory structure changes
+  //      },
+  //      ratingCallback:function(index, playlistItem, rating){
+  //              //some logic to process the rating, perhaps through an ajax call
+  //      }
+  // });
+
+
     $('section[data-type="background"]').each(function(){
         var $bgobj = $(this); // assigning the object
 

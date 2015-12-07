@@ -18,10 +18,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 <html>
 
 <head>
-  <title>Listenins to Voices</title>
+  <title>Listening to Voices</title>
   <link rel="stylesheet" href="js/libs/twitter-bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="js/libs/twitter-bootstrap/css/bootstrap-theme.css">
+  <link rel="stylesheet" type="text/css" href="js/vendor/player/css/style.css">
   <script type="text/javascript" src="js/libs/jquery/jquery.js"></script>
+  <script type="text/javascript" src="js/vendor/player/jquery-jplayer/jquery.jplayer.js"></script>
+  <script type="text/javascript" src="js/vendor/player/ttw-music-player-min.js"></script>
+  <script type="text/javascript" src="js/myplaylist.js"></script>
   <script type="text/javascript" src="js/libs/twitter-bootstrap/js/bootstrap.js"></script>
   <script type="text/javascript" src="js/libs/scrollNav/jquery.scrollNav.min.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
@@ -29,9 +33,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
-
 </head>
-
 <body>
   <nav id="top" class="navbar navbar-default">
     <div class="container-fluid">
@@ -58,9 +60,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </div><!--/.container-fluid -->
   </nav>
 
-  <div id="home" class="container group2">
-    <article class="veryBig text-white ">Listening to Voices</article>
+  <div class="container group2">
+    <div id="home">
+    <article class="veryBig text-darkRed ">Listening to Voices</article>
     <!-- <img src="img/cover.png" class=" col-lg-12 col-md-12 col-sm-12 col-xs-12"> -->
+  </div>
   </div>
   <div id="overview" class="container group3">
     <section class="text-center lead ">
@@ -76,107 +80,175 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     </section>
   </div>
-  <div class="container-fluid">
-    <div id="companion" class="container">
-      <section class="text-center lead ">
-        <h2>
-          Companion to voice hearing
-        </h2>
-      </section>
-      <section class=" lead text-justify">
-        Listening to Voices is a research project that tries to understand how we can listen to voices Listen (If You Dare): An Unlikely Companion to Voice-Hearing is a radical new text about voice-hearing experiences. It explores what it is like to hear voices and attempts to help the reader experience something of that too. It also tries to understand how we can listen better to those voices that we find difficult, disruptive or challenging, whether these seem to come from inside or outside ourselves.
-
-        Warning: Some of the text and voices in the Listen (If You Dare) may be very disturbing. They reflect real experience and contain explicit content. For anyone who hears voices (particularly if this is a new experience) or loves someone who hears voices, reading it may be difficult or triggering.
-      </section>
-    </div>
-    <div id="pdfDownload" class="container-fluid">
-      <div id="survey" class="darkGreyBack ">
-        <div class="container">
-        <h1 class="text-white">How did you hear about voice hearing?</h1>
-        <textarea rows="3"></textarea>
-        <h1 class="text-white">Your email</h1>
-        <input type="text" />
-        <img src="/img/skip.png">
-      </div>
-      </div>
-      <section class=" text-center">
-
-        <a href="/res/ListenIfYouDare.pdf" download>
-          <h1 class="group3 text-darkRed">Download the companion</h1>
-          <div class="circular vcenter" ></div></a>
-      </section>
-    </div>
-    <div class="container group3">
-      <section class="marginTop30 lead text-justify">
-        Listen (If You Dare) was co-authored by members of Time and Space Hearing Voices group, Hearing Voices Belfast, Hearing Voices Ireland, the project researchers, sound artist Pedro Rebelo and designer Sara Nevay. They met together at a weekend retreat to reflect on, share and broaden their experiences of listening and being listened to. This retreat and the follow up discussions resulted in the production of this booklet in November 2015.
-
-      </section>
-    </div>
+  <div class="container">
+    <div id="sep1" class="seperator" ></div>
   </div>
-  <div class="marginTop30 container">
-    <section>
-      <div id="sound" class="tweet"></div>
+  <div id="companion" class="container group2">
+    <section class="text-center lead ">
+      <h2>
+        Companion to voice hearing
+      </h2>
+    </section>
+    <section class="lead text-justify">
+      Listen (If You Dare): <s>An Unlikely</s> Companion to Voice-Hearing is a radical new text about voice-hearing experiences. It explores what it is like to hear voices and attempts to help the reader experience something of that too. It also tries to understand how we can listen better to those voices that we find difficult, disruptive or challenging, whether these seem to come from inside or outside ourselves.
+    </section>
+
+    <section class="lead text-justify">
+      <span class="text-greyBack"><strong>Warning:</strong></span> Some of the text and voices in the Listen (If You Dare) may be very disturbing. They reflect real experience and contain explicit content. For anyone who hears voices (particularly if this is a new experience) or loves someone who hears voices, reading it may be difficult or triggering.
     </section>
   </div>
-  <div id="team" class="container-fluid text-center darkGreyBack">
-    <h1 class="whiteish vcenter marginTop30">Project researchers</h1>
-    <div class="container text-center whiteish">
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 marginTop30">
-        <section>
-          <img src="img/unknown-female.jpg" alt="Debbie Maxwell" class="img-responsive portfolio">
-        </section>
-        <section>
-          <h3 class="whiteish">Dr Gail McConnell</h3>
-        </section>
-        <section>
-          Principal Investigator
-          <br> QUB
-          <br>
-          <a href="www.www.com" class="">www.qubwww.com</a>
-          <br>
-          <a href="mailto:g.mcconnell@qub.ac.uk" class="">g.mcconnell@qub.ac.uk</a>
-          <p class="text-justify lead bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </section>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 marginTop30">
-        <section>
-          <img src="img/unknown-female.jpg" alt="Debbie Maxwell" class="img-responsive portfolio">
-        </section>
-        <section>
-          <h3>Dr Jo Collinson Scott</h3>
-        </section>
-        <section>
-          Co-Investigator
-          <br>
-          <br>
-          <a href="www.www.com" class="">www.qubwww.com</a>
-          <br>
-          <a href="mailto:Jo.Collinson-Scott@uws.ac.uk" class="">Jo.Collinson-Scott@uws.ac.uk</a>
-          <p class="text-justify lead bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </section>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 marginTop30">
-        <section>
-          <img src="img/unknown-female.jpg" alt="Debbie Maxwell" class="img-responsive portfolio">
-        </section>
-        <section>
-          <h3>Dr Debbie Maxwell</h3>
-        </section>
-        <section>
-          Co-Investigator
-          <br> UoE
-          <br>
-          <a href="www.www.com" class="">www.qubwww.com</a>
-          <br>
-          <a href="mailto:D.Maxwell@ed.ac.uk" class="">g.mcconnell@qub.ac.uk</a>
-          <p class="text-justify lead bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+  <div  class="container">
+    <div id="pdfDownload">
+    <div id="survey" class="darkGreyBack90">
+      <!-- <div class="container"> -->
+      <h1 class="text-white">How did you hear about voice hearing?</h1>
+      <textarea rows="3"></textarea>
+      <h1 class="text-white">Your email</h1>
+      <input type="text" />
+      <img class="skip"  src="/img/close.png">
+      <!-- <img class="download"  src="/img/submit.png"> -->
+      <button type="submit">Submit</button>
+    </div>
+
+    <div class="vcenter">
+      <section class=" text-center">
+        <a id="pdfDownloadLink" href="/res/ListenIfYouDare.pdf" download>
+          <h1 class="group3 text-darkRed">Download the companion</h1>
+          <div class="circular vcenter" ></div></a>
         </section>
       </div>
     </div>
   </div>
 
-  <footer class="footer text-center" >
-  </footer>
-</body>
+  <div class="container group2">
+      <section class="lead text-justify">
+        Listen (If You Dare) was co-authored by members of Time and Space Hearing Voices group, Hearing Voices Belfast, Hearing Voices Ireland, the project researchers, sound artist Pedro Rebelo and designer Sara Nevay. They met together at a weekend retreat to reflect on, share and broaden their experiences of listening and being listened to. This retreat and the follow up discussions resulted in the production of this booklet in November 2015.
+      </section>
+  </div>
 
-</html>
+  <div id="sepWithWords" class="container">
+    <div id="sep2" class="seperator"></div>
+  </div>
+
+  <div id="listen" class="container">
+    <section class="text-center lead ">
+      <h2>
+        The Online Version of the Companion
+      </h2>
+    </section>
+    <section class="lead text-justify">
+      To accompany the printed and downloadable version of [Listen (If You Dare): <s>An Unlikely</s> Companion to Voice-Hearing][link back to section 3] we have created an interactive text.
+    </section>
+
+    <section class="lead text-justify">
+      <span class="text-greyBack"><strong>Warning:</strong></span> This online version of Listen (If You Dare) contains audio and text from the outset that you or others in your environment may find disturbing.
+
+    </section>
+    <section class="lead text-justify">
+      You can explore it <a href="/game.html">here</a>
+    </section>
+  </div>
+  <div class="container">
+    <div id="sep3" class="seperator" ></div>
+  </div>
+
+  <div class="marginTop30 container">
+    <section class="text-center lead ">
+      <h2>
+        Sound Piece
+      </h2>
+    </section>
+    <section class="lead text-justify">
+    opening sentence and link to mp3 as download? (probably not) - player in the webpage instead.
+<span class="text-greyBack"><strong>warning</strong></span> too?
+</section>
+      <section>
+
+        <div id="sound" class="charcoalBack">
+          <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/203095528&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+        </div>
+      </section>
+    </div>
+    <div id="sepWithWords" class="container">
+      <div id="sep4" class="seperator"></div>
+    </div>
+    <div id="team" class="container-fluid text-center darkGreyBack">
+      <h1 class="whiteish vcenter marginTop30">Project researchers</h1>
+      <div class="container text-center whiteish">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 marginTop30">
+          <section>
+            <img src="img/gmcconnell.jpg" alt="Debbie Maxwell" class="img-responsive portfolio roundCorners2">
+          </section>
+          <section>
+            <h3 class="whiteish">Dr Gail McConnell</h3>
+          </section>
+          <section>
+            Principal Investigator
+            <br> QUB
+            <br>
+            <a href="www.www.com" class="">www.qubwww.com</a>
+            <br>
+            <a href="mailto:g.mcconnell@qub.ac.uk" class="">g.mcconnell@qub.ac.uk</a>
+            <p class="text-justify lead bio">Dr Gail McConnell is Lecturer in English at Queen’s University Belfast. She is the author of Northern Irish Poetry and Theology (Palgrave, 2014) and is one of the editors of The Irish Review. Gail’s research interests are in modern Irish and British poetry, in particular the politics of literary form. Her work on lyric disintegration, violence, revision and repetition underpins her interest in voice-hearing experience and disrupted form. She has enjoyed the opportunity to work with voice-hearers from Scotland and Ireland in co-producing the many facets of ‘Listening to Voices’.</p>
+          </section>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 marginTop30">
+          <section>
+            <img src="img/jcollinson.jpg" alt="Debbie Maxwell" class="img-responsive portfolio">
+          </section>
+          <section>
+            <h3>Dr Jo Collinson Scott</h3>
+          </section>
+          <section>
+            Co-Investigator
+            <br>
+            <br>
+            <a href="www.www.com" class="">www.qubwww.com</a>
+            <br>
+            <a href="mailto:Jo.Collinson-Scott@uws.ac.uk" class="">Jo.Collinson-Scott@uws.ac.uk</a>
+            <p class="text-justify lead bio">Dr Jo Collinson Scott is a Lecturer in Commercial Music at the University of the West of Scotland. She is a practice-led researcher in the field of popular music songwriting (performing and touring internationally under the name Jo Mango) and also researches creative approaches to writing non-fiction text. Past research includes her doctoral thesis which explored what can be learnt from the lived experience of people with a diagnosis of schizophrenia about the music that is present (but hidden) in different texts, and the AHRC funded 'Fields of Green Project' looking at addressing climate change through music festival communities.</p>
+          </section>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 marginTop30">
+          <section>
+            <img src="img/dmaxwell.jpg" alt="Debbie Maxwell" class="img-responsive portfolio roundCorners2">
+          </section>
+          <section>
+            <h3>Dr Debbie Maxwell</h3>
+          </section>
+          <section>
+            Co-Investigator
+            <br> UoE
+            <br>
+            <a href="www.www.com" class="">www.qubwww.com</a>
+            <br>
+            <a href="mailto:D.Maxwell@ed.ac.uk" class="">g.mcconnell@qub.ac.uk</a>
+            <p class="text-justify lead bio">Dr Deborah Maxwell is a lecturer in Interactive Media at University of York. Her research interests are around the ways that people interact with and reshape technology and the roles that storytelling can play across media. Past research includes her doctoral research working with traditional storytellers in Scotland, mobile digital interpretation projects in rural Northumberland, and the design of digital tools to facilitate and encourage serendipitous encounters in research.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer container-fluid" >
+
+      <section class="container marginTop20 text-center">
+      Listening to Voices: Creative Disruptions with the Hearing Voices Network was funded by the Arts and Humanities Research Council (grant no. <strong>AH/M009181/1</strong>).
+
+</section>
+<section class="container marginTop30 text-center">
+  <a href="http://www.ahrc.ac.uk"><img src="img/ahrc-logo.jpg"></a>
+  <a href="http://www.ed.ac.uk"><img src="img/uoe.png"></a>
+  <a href="https://www.york.ac.uk"><img src="img/yorklogo.jpg"></a>
+  <a href="https://www.qub.ac.uk"><img src="img/qub-logo.jpg"></a>
+  <a href="http://www.uws.ac.uk"><img src="img/uws_logo_black.png"></a>
+
+<hr/>
+
+</section>
+      <section class="container text-center">Website designed and developed by <a href ="http://hadi.link">Hadi Mehrpouya</a></section>
+        <section class="container text-center">Artworks by <a href= "http://">Sara Nevay </section>
+    </footer>
+  </body>
+
+  </html>
