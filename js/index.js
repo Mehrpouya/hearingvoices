@@ -19,19 +19,14 @@
 $(".autoScrollabe").click(function() {
     alert($(this).attr('whereTo'));
     $('html, body').animate({
-
         scrollTop: $($(this).attr('whereTo')).offset().top
     }, 2000);
 });
-
 function navClicked(_whereTo){
     $('html, body').animate({
-
         scrollTop: $(_whereTo).offset().top-50
     }, 2000);
 }
-
-
 $(document).ready(function(){
   var description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id tortor nisi. Aenean sodales diam ac lacus elementum scelerisque. Suspendisse a dui vitae lacus faucibus venenatis vel id nisl. Proin orci ante, ultricies nec interdum at, iaculis venenatis nulla. ';
 
@@ -40,6 +35,20 @@ $(document).ready(function(){
   });
   $('#pdfDownloadLink').bind("click",function(){
     $('#survey').fadeIn("slow");
+  });
+  $('#submitFeedback').bind("click",function(){
+    $('#survey').fadeOut("slow");
+    var url="http://listeningtovoices.org.uk/addEmail.php";
+    var emailAddress = $("#emailAddress").val();
+    var dataToBeSent = {
+        email: emailAddress
+    };
+    $.post(url, dataToBeSent)
+            .success(function (data) {
+            }
+            ).always(function (data){
+            });
+
   });
   // var warningElements = $('.warning');
   // setInterval(function() {

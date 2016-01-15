@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2015 Hadi Mehrpouya <http://www.hadi.link>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -28,7 +28,7 @@ String.prototype.height = function (font) {
             o = $('<div>' + this + '</div>')
             .css({'position': 'absolute', 'float': 'left', 'white-space': 'nowrap', 'visibility': 'hidden', 'font': f})
             .appendTo($('body')),
-            h = o.height();
+            h = o.height()+5;
     o.remove();
     return h;
 };
@@ -57,8 +57,8 @@ function makeAllCharacterBitmaps() {
 function makeWordBitmap(_word, _color,_font) {
     var color = _color;
     var font = _font || g_font;
-    var bmd = game.add.bitmapData(_word.width(_font), _word.height(_font), _word);
-    bmd.text(_word, 0, _word.height(_font)-_word.height(_font)/4, font, _color);
+    var bmd = game.add.bitmapData(_word.width(font), _word.height(font), _word);
+    bmd.text(_word, 0, _word.height(font)-_word.height(font)/4, font, _color);
     return bmd;
 }
 
@@ -68,5 +68,3 @@ function initCell(chr, x, y) {
 //    platforms.add(text);
 //    return text;
 }
-
-
